@@ -1,0 +1,22 @@
+# Dependencies
+/node_modules
+
+# Production Build
+/dist
+/build
+
+# Environment Variables
+# Ignore all local environment files
+.env.local
+.env.*.local
+
+# Vite cache
+.vite/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS-specific
+.DS_Store

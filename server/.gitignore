@@ -1,0 +1,14 @@
+# Dependencies
+/node_modules
+
+# Environment Variables
+# NEVER commit your secrets file
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS-specific
+.DS_Store
