@@ -4,8 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 // API URLs
-const UPLOAD_API_URL = '/api/upload';
-const TRIPS_API_URL = '/api/trips';
+const UPLOAD_API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/upload`;
+const TRIPS_API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/trips`;
 
 const NewTrip = () => {
   const [tripData, setTripData] = useState({

@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 // Define the base URL for your user API
-const API_URL = '/api/users';
+const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/users`;
 
 // 1. Create the AuthContext
 const AuthContext = createContext();
