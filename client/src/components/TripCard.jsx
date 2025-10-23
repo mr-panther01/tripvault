@@ -9,7 +9,7 @@ const formatDate = (dateString) => {
 };
 
 // Define the base URL for your trips API
-const TRIPS_API_URL = 'http://localhost:5001/api/trips';
+const TRIPS_API_URL = '/api/trips';
 
 const TripCard = ({ trip, onDelete }) => {
   const { token } = useAuth(); // Get token for delete request

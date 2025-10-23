@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // API URL
-const TRIPS_API_URL = 'http://localhost:5001/api/trips';
+const TRIPS_API_URL = '/api/trips';
 
 const EditTrip = () => {
   const [tripData, setTripData] = useState({

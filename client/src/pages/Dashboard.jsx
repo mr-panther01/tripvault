@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import TripCard from '../components/TripCard';
 import { Link } from 'react-router-dom';
 
-const TRIPS_API_URL = 'http://localhost:5001/api/trips';
+const TRIPS_API_URL = '/api/trips';
 
 const Dashboard = () => {
   const [trips, setTrips] = useState([]);
