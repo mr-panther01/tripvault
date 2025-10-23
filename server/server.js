@@ -10,8 +10,11 @@ dotenv.config(); // Load .env variables
 connectDB(); // Connect to MongoDB
 
 const app = express();
+const clientURL = process.env.CLIENT_URL || "http://localhost:5173";
 
-app.use(cors()); // Enable CORS
+app.use(cors({
+  origin: clientURL
+})); // Enable CORS
 app.use(express.json()); // To accept JSON data in body
 app.use(express.urlencoded({ extended: true })); // For form data
 
