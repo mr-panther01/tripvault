@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import Particles from '../components/ui/Particles';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -35,14 +36,21 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-100px)]">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center text-gray-900">
-          Create your Account
-        </h2>
+    <div className="relative flex items-center justify-center min-h-[calc(100vh-64px)] bg-black overflow-hidden selection:bg-indigo-500 selection:text-white">
+      <Particles className="absolute inset-0 z-0" />
+
+      <div className="relative z-10 w-full max-w-md p-8 space-y-6 bg-slate-900/50 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50">
+        <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-white">
+            Create Account
+            </h2>
+            <p className="mt-2 text-sm text-gray-400">
+                Join us to start planning your dream trips
+            </p>
+        </div>
 
         {error && (
-          <div className="p-3 text-red-700 bg-red-100 rounded-md">
+          <div className="p-3 text-sm text-red-200 bg-red-900/40 border border-red-800 rounded-md">
             {error}
           </div>
         )}
@@ -51,9 +59,9 @@ const Register = () => {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300"
             >
-              Name
+              Full Name
             </label>
             <input
               id="name"
@@ -62,14 +70,15 @@ const Register = () => {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-3 mt-1 bg-slate-800/50 border border-slate-700 text-white placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              placeholder="John Doe"
             />
           </div>
 
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300"
             >
               Email address
             </label>
@@ -81,14 +90,15 @@ const Register = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-3 mt-1 bg-slate-800/50 border border-slate-700 text-white placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              placeholder="you@example.com"
             />
           </div>
 
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300"
             >
               Password
             </label>
@@ -98,10 +108,11 @@ const Register = () => {
               type="password"
               autoComplete="new-password"
               required
-              minLength="6" // Good practice
+              minLength="6"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-3 mt-1 bg-slate-800/50 border border-slate-700 text-white placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              placeholder="••••••••"
             />
           </div>
 
@@ -109,18 +120,18 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="w-full px-4 py-3 text-sm font-bold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg shadow-indigo-500/30"
             >
-              {loading ? 'Creating Account...' : 'Register'}
+              {loading ? 'Creating Account...' : 'Sign Up'}
             </button>
           </div>
         </form>
 
-        <p className="text-sm text-center text-gray-600">
+        <p className="text-sm text-center text-gray-400">
           Already have an account?{' '}
           <Link
             to="/login"
-            className="font-medium text-indigo-600 hover:text-indigo-500"
+            className="font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
           >
             Login here
           </Link>
