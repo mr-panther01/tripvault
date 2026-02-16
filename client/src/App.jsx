@@ -53,7 +53,7 @@ function AppContent() {
 
   return (
     <>
-      <Header />
+      {location.pathname !== '/' && <Header />}
       
       <AnimatePresence mode="wait">
         <motion.main
