@@ -13,8 +13,17 @@ const app = express();
 const clientURL = process.env.CLIENT_URL || "http://localhost:5173";
 
 app.use(cors({
-  origin: clientURL
-})); // Enable CORS
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like curl, mobile apps)
+    if (!origin) return callback(null, true);
+    // Allow any localhost port in development
+    if (/^http:\/\/localhost:\d+$/.test(origin) || origin === clientURL) {
+      return callback(null, true);
+    }
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+}));
 app.use(express.json()); // To accept JSON data in body
 app.use(express.urlencoded({ extended: true })); // For form data
 
